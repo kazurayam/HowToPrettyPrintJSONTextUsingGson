@@ -45,8 +45,8 @@ JSON形式のStringを別のJSON形式のStringに変換したい、改行とイ
 
 ## 解決方法
 
-困ったことに気づいてから、はや幾年。某日、ふと思いついた。たしかにGsonで解決できた。
-たかだか数行のヘルパメソッドで。
+某日、ふと思いついた。たしかにGsonで解決できた。
+たった3行から成るヘルパメソッドでこと足りた。これに気づくまでに何年かかったことか。
 
 ## 説明
 
@@ -75,6 +75,9 @@ JSON形式のStringを別のJSON形式のStringに変換したい、改行とイ
             return prettyPrint(sourceJson, Map.class);
         }
 
+        /**
+         * The following 3 lines satisfies me
+         */
         static <T> String prettyPrint(String sourceJson, Class<T> clazz) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Object obj = gson.fromJson(sourceJson, clazz);

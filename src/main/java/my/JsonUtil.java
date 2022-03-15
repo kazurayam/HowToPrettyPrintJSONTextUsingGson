@@ -11,6 +11,9 @@ public class JsonUtil {
         return prettyPrint(sourceJson, Map.class);
     }
 
+    /**
+     * The following 3 lines satisfies me
+     */
     static <T> String prettyPrint(String sourceJson, Class<T> clazz) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Object obj = gson.fromJson(sourceJson, clazz);
