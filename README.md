@@ -45,7 +45,7 @@ JSON形式のStringを別のJSON形式のStringに変換したい、改行とイ
 ## 解決方法
 
 某日、ふと思いついた。たしかにGsonで解決できた。
-たった3行から成るヘルパメソッドでこと足りた。これに気づくまでに何年かかったことか。
+たった3行から成るヘルパメソッドでこと足りた。
 
 ## 説明
 
@@ -154,4 +154,6 @@ JSON形式のStringを別のJSON形式のStringに変換したい、改行とイ
     3 actionable tasks: 3 executed
     10:21:10: Task execution finished ':test --tests "my.JsonUtilTest"'.
 
-できた。
+## 結論
+
+Gsonを使ってわたしの望むヘルパを実現できた。これに気づくまでに何年かかったことか。
