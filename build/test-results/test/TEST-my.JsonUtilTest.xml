@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="my.JsonUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-15T00:47:09" hostname="KAZUAKInoMacBook-Air-2.local" time="0.07">
+<testsuite name="my.JsonUtilTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-03-15T01:21:10" hostname="KAZUAKInoMacBook-Air-2.local" time="0.231">
   <properties/>
-  <testcase name="test_prettyPrint_object()" classname="my.JsonUtilTest" time="0.07"/>
-  <system-out><![CDATA[---- object ----
+  <testcase name="test_prettyPrint_array()" classname="my.JsonUtilTest" time="0.21"/>
+  <testcase name="test_prettyPrint_object()" classname="my.JsonUtilTest" time="0.016"/>
+  <system-out><![CDATA[---- array ----
+[ "We are the champions, my friends", "Are we'll keep on fighting 'til the end.", "We are the champions.", "We are the champions.", "No time for losers", "'Cause we are the champions of the world."]
+[
+  "We are the champions, my friends",
+  "Are we\u0027ll keep on fighting \u0027til the end.",
+  "We are the champions.",
+  "We are the champions.",
+  "No time for losers",
+  "\u0027Cause we are the champions of the world."
+]
+---- object ----
 { "key": "profile", "value": "DevEnv_1.2.3-beta", "ignoredByKey": true, "identifiedByValue": true, "semanticVersion": "1.2.3-beta"}
 {
   "key": "profile",

@@ -13,10 +13,7 @@ Java8でプログラムを自作していた。
 ----
 
 正しい形式のJSONになっている。しかし見づらい。このテキストをコンソールに表示しても役に立たない。
-適切な改行と字下げを付け加えたい。
-ただし自作Classのメソッドがいちいち改行と字下げを意識してテキストを構築するのは面倒だ。
-そこでヘルパクラスを作ることにした。
-任意のJSONテキストを入力として、適切な改行と字下げを加えたJSONテキストに変換する、というメソッドを実装。
+適切な改行と字下げを付け加えたい。 任意のJSONテキストを入力として、適切な改行と字下げを加えたJSONテキストに変換する、というメソッドを実装。
 つまり上記の横長なJSONテキストを入力として、下記のような形式のテキストに変換したい。
 
 [source]
@@ -30,23 +27,97 @@ Java8でプログラムを自作していた。
 }
 ----
 
+こういうテキスト変換をしてくれるヘルパを実装できればいいな。
+
 "Java Json pretty print"とキーワードを指定してネットを検索した。
 神々がおっしゃるには、JavaでJSONを操作するコードを書くならば
 
 https://github.com/google/gson[Gson]
 
-を使えという。ふむふむ。見つかった記事(
+を使えという。ふむふむ。 見つかった記事を
 https://www.baeldung.com/java-json[あれ]
 https://qiita.com/u-chida/items/cbdd040e4199a10936dc[これ])
-を読んでわたしは困った。
+読んだ。わたしは困った。
+それらネット記事はJavaオブジェクトとJSONテキストとを双方向に変換するあれこれややこしい話をしていた。
+JavaオブジェクトをserializeしてJSONテキストにする。そのJSONテキストを入力として
+Javaオブジェクトを復元する。ご苦労さまと思った。しかし僕はそんなことをしたいわけではない。
+僕がしたいのはもっと低級なことだ。
+JSON形式のStringを別のJSON形式のStringに変換したい、改行とインデントを加えたい、
+それだけ。これを端的に例示してくれる記事がみつからなかった。
 
-それらネット記事はJavaオブジェクトとJSONテキストとの相互変換を解説していた。
-JavaオブジェクトをserializeしてできたJSONテキストを入力として
-Javaオブジェクトをdeserializeすることに熱中していた。
+== 解決方法
 
-僕はそんなことしたくはない。 僕がしたいのはもっと低級なことだ。
-JSON形式のStringをJSON形式のStringにする、ただし改行とインデントを加える、それだけ。
-これを端的に例示してくれる記事がみつからなかった。
+困ったことに気づいてから、はや幾年。某日、ふと思いついた。たしかにGsonで解決できた。
+たかだか数行のヘルパメソッドで。
+
+== 説明
+
+=== 入力データ
+
+==== object.json
+
+[source]
+----
+include::src/test/fixture/object.json[]
+----
+
+==== array.json
+
+[source]
+----
+include::src/test/fixture/array.json[]
+----
+
+=== pretty printするヘルパクラス
+
+[source,java]
+----
+include::src/main/java/my/JsonUtil.java[]
+----
+
+=== テスト
+
+[source,java]
+----
+include::src/test/java/my/JsonUtilTest.java[]
+----
+
+=== テストを実行すると
+
+[source]
+----
+> Task :compileJava
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :test
+---- array ----
+[ "We are the champions, my friends", "Are we'll keep on fighting 'til the end.", "We are the champions.", "We are the champions.", "No time for losers", "'Cause we are the champions of the world."]
+[
+  "We are the champions, my friends",
+  "Are we\u0027ll keep on fighting \u0027til the end.",
+  "We are the champions.",
+  "We are the champions.",
+  "No time for losers",
+  "\u0027Cause we are the champions of the world."
+]
+---- object ----
+{ "key": "profile", "value": "DevEnv_1.2.3-beta", "ignoredByKey": true, "identifiedByValue": true, "semanticVersion": "1.2.3-beta"}
+{
+  "key": "profile",
+  "value": "DevEnv_1.2.3-beta",
+  "ignoredByKey": true,
+  "identifiedByValue": true,
+  "semanticVersion": "1.2.3-beta"
+}
+BUILD SUCCESSFUL in 1s
+3 actionable tasks: 3 executed
+10:21:10: Task execution finished ':test --tests "my.JsonUtilTest"'.
+----
+
+できた。
 
 
 

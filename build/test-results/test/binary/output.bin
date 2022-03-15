@@ -1,9 +1,19 @@
----- object ----
-„{ "key": "profile", "value": "DevEnv_1.2.3-beta", "ignoredByKey": true, "identifiedByValue": true, "semanticVersion": "1.2.3-beta"}
-{
-  "key": "profile",
-   "value": "DevEnv_1.2.3-beta",
-  "ignoredByKey": true,
-  "identifiedByValue": true,
-"  "semanticVersion": "1.2.3-beta"
-}
+---- array ----
+Ç[ "We are the champions, my friends", "Are we'll keep on fighting 'til the end.", "We are the champions.", "We are the champions.", "No time for losers", "'Cause we are the champions of the world."]
+[
+&  "We are the champions, my friends",
+8  "Are we\u0027ll keep on fighting \u0027til the end.",
+  "We are the champions.",
+  "We are the champions.",
+  "No time for losers",
+3  "\u0027Cause we are the champions of the world."
+]
+---- object ----
+„{ "key": "profile", "value": "DevEnv_1.2.3-beta", "ignoredByKey": true, "identifiedByValue": true, "semanticVersion": "1.2.3-beta"}
+{
+  "key": "profile",
+   "value": "DevEnv_1.2.3-beta",
+  "ignoredByKey": true,
+  "identifiedByValue": true,
+"  "semanticVersion": "1.2.3-beta"
+}

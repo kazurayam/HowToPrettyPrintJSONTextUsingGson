@@ -13,9 +13,7 @@ public class JsonUtil {
 
     static <T> String prettyPrint(String sourceJson, Class<T> clazz) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        // parse JSON text to an Map
         Object obj = gson.fromJson(sourceJson, clazz);
-        // serialize the object back to a JSON text in pretty-print format
         return gson.toJson(obj);
     }
 }
