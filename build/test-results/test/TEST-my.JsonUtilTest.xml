@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="my.JsonUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-15T00:47:09" hostname="KAZUAKInoMacBook-Air-2.local" time="0.07">
+  <properties/>
+  <testcase name="test_prettyPrint_object()" classname="my.JsonUtilTest" time="0.07"/>
+  <system-out><![CDATA[---- object ----
+{ "key": "profile", "value": "DevEnv_1.2.3-beta", "ignoredByKey": true, "identifiedByValue": true, "semanticVersion": "1.2.3-beta"}
+{
+  "key": "profile",
+  "value": "DevEnv_1.2.3-beta",
+  "ignoredByKey": true,
+  "identifiedByValue": true,
+  "semanticVersion": "1.2.3-beta"
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

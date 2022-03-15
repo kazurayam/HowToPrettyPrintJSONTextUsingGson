@@ -1,0 +1,9 @@
+---- object ----
+„{ "key": "profile", "value": "DevEnv_1.2.3-beta", "ignoredByKey": true, "identifiedByValue": true, "semanticVersion": "1.2.3-beta"}
+{
+  "key": "profile",
+   "value": "DevEnv_1.2.3-beta",
+  "ignoredByKey": true,
+  "identifiedByValue": true,
+"  "semanticVersion": "1.2.3-beta"
+}
